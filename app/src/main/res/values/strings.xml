@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SignalRoute</string>
+    <string name="language">french</string>
+    <string name="MainFragment_content">Selectionnez un incident depuis la liste pour consulter son detail et son protocole de securite.</string>
+    <string name="Screen1Fragment_label">Detail incident</string>
+    <string name="content6">SignalRoute</string>
+    <string name="content2">Incidents a proximite</string>
+    <string name="index">index</string>
+    <string name="seekbarvalue">seekBarValue</string>
+    <string name="tanquinstate">tanquinstate</string>
+    <string name="character">valorantCharacter</string>
+    <string name="size">size</string>
+    <string name="characterlist">characterList</string>
+    <string name="data">data</string>
+    <string name="filtervalue">filterValue</string>
+    <string name="issue">issue</string>
+    <string name="issues">issues</string>
+    <string name="nav_map">Carte</string>
+    <string name="nav_list">Incidents</string>
+    <string name="nav_report">Signaler</string>
+    <string name="nav_history">Historique</string>
+    <string name="nav_voice">Vocal</string>
+    <string name="nav_settings">Parametres</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Screen7Fragment">
+
+    <TextView
+        android:id="@+id/labelScreen7Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parametres"
+        android:textColor="@color/text_primary"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_card"
+        android:padding="16dp"
+        android:text="Notifications d'incidents : activees\nMicrophone : utilise pour le signalement vocal\nGPS : rattache les incidents a une zone"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp" />
+</LinearLayout>

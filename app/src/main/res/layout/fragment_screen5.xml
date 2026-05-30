@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Screen5Fragment">
+
+    <TextView
+        android:id="@+id/labelScreen5Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mes signalements"
+        android:textColor="@color/text_primary"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_card_incident"
+        android:padding="16dp"
+        android:text="Accrochage - A8\n7h42 | Signalement rapide | A completer"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card_incident"
+        android:padding="16dp"
+        android:text="Accident velo - Antibes\n28 mars | 2 photos | Resolu"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp" />
+</LinearLayout>

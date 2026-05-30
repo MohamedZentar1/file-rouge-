@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Place this in res/drawable/ and reference from mipmap/ic_launcher.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Shield background -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M54,22L30,32L30,54C30,67.8 40.2,80.8 54,84.5C67.8,80.8 78,67.8 78,54L78,32L54,22Z"/>
+    <!-- Shield detail -->
+    <path android:fillColor="#2563EB" android:fillAlpha="0.2"
+        android:pathData="M54,28L35,36.5L35,54C35,65.4 43.2,76 54,79.2C64.8,76 73,65.4 73,54L73,36.5L54,28Z"/>
+    <!-- Checkmark / route lines -->
+    <path android:strokeColor="#2563EB" android:strokeWidth="4"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M42,54L50,62L66,46"/>
+</vector>

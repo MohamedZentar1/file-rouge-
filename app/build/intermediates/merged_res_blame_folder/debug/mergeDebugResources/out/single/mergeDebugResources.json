@@ -1,0 +1,474 @@
+[
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_settings.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_screen1.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_screen1.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_item_issue.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/item_issue.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_sanse_face.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/sanse_face.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu0.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu0.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_refresh.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_phone.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_phone.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_card_elevated.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_card_elevated.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/raw_mj.wav.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/raw/mj.wav"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_input.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_input.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_camera.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_camera.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_badge_danger.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_badge_danger.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_rotation_animation.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/rotation_animation.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_badge_info.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_badge_info.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_notifications.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_notifications.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu1_s.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu1_s.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_button_danger.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_button_danger.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_gravity_low.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/gravity_low.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_screen2.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_screen2.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu1.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu1.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_nav_bar.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_nav_bar.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_selector_chip.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/selector_chip.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_button_ghost.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_button_ghost.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu0_s.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu0_s.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_circle_danger.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_circle_danger.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth5.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth5.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu6_s.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu6_s.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_circle_danger_soft.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_circle_danger_soft.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu5_s.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu5_s.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ripple_card.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ripple_card.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_severity_critical.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_severity_critical.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_fond.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/fond.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu2_s.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu2_s.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu3_s.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu3_s.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_button_primary.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_button_primary.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_pill.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_pill.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu4_s.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu4_s.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_signalroute_logo.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_signalroute_logo.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_mic.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_mic.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_screen3.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_screen3.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_warning_low.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_warning_low.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_list.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_list.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_fondmenu.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/fondmenu.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ripple_primary.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ripple_primary.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_warning_medium.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_warning_medium.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth3.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth3.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_clock.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_clock.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_activity_control.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/activity_control.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu6.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu6.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_car.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_car.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_step_inactive.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_step_inactive.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth6.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth6.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_card.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_card.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_location.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_location.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_check.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_check.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_warning_critical.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_warning_critical.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_circle_primary.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_circle_primary.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_map.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_map.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_chevron_left.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_chevron_left.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_input_focused.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_input_focused.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_menu.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_menu.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu3.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu3.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_screen5.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_screen5.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_badge_success.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_badge_success.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_app_gradient.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_app_gradient.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth9.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth9.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth2.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth2.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_input_selector.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_input_selector.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_severity_grave.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_severity_grave.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_gravity_medium.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/gravity_medium.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_eye.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_eye.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth1.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth1.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_road.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_road.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_severity_moyen.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_severity_moyen.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_close.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_close.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_splash.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_splash.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_step_active.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_step_active.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth10.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth10.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_selector_radio_severity.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/selector_radio_severity.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_card_incident.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_card_incident.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_activity_main.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu4.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu4.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth8.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth8.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_screen6.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_screen6.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_bottom_sheet.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_bottom_sheet.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_sanse.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/sanse.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth4.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth4.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-anydpi-v33/ic_launcher.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu5.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu5.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_badge_warning.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_badge_warning.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_edit.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_edit.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_plus.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_plus.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_earth7.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/earth7.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_screen7.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_screen7.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_severity_faible.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_severity_faible.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_divider_horizontal.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/divider_horizontal.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_bg_button_outline.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/bg_button_outline.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_gravity_high.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/gravity_high.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_users.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_users.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/layout_fragment_screen4.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/layout/fragment_screen4.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_shield.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_shield.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_alert.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_alert.xml"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/mipmap-hdpi_menu2.png.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/mipmap-hdpi/menu2.png"
+    },
+    {
+        "merged": "edu.polytech.filrouge_tp5.app-debug-33:/drawable_ic_chevron_right.xml.flat",
+        "source": "edu.polytech.filrouge_tp5.app-main-35:/drawable/ic_chevron_right.xml"
+    }
+]
