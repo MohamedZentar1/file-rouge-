@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemsMenu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_nav_bar"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingStart="4dp"
+    android:paddingTop="4dp"
+    android:paddingEnd="4dp"
+    android:paddingBottom="4dp"
+    tools:context=".view.MenuFragment">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:tag="0">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/nav_map"
+            android:padding="5dp"
+            android:src="@drawable/ic_map"
+            android:tag="0"
+            app:shapeAppearanceOverlay="@style/MenuImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="@string/nav_map"
+            android:textColor="@color/text_subtle"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:tag="1">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/nav_list"
+            android:padding="5dp"
+            android:src="@drawable/ic_list"
+            android:tag="1"
+            app:shapeAppearanceOverlay="@style/MenuImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="@string/nav_list"
+            android:textColor="@color/text_subtle"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:tag="2">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/nav_report"
+            android:padding="5dp"
+            android:src="@drawable/ic_alert"
+            android:tag="2"
+            app:shapeAppearanceOverlay="@style/MenuImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="@string/nav_report"
+            android:textColor="@color/text_subtle"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:tag="3">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/nav_voice"
+            android:padding="5dp"
+            android:src="@drawable/ic_mic"
+            android:tag="3"
+            app:shapeAppearanceOverlay="@style/MenuImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="@string/nav_voice"
+            android:textColor="@color/text_subtle"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:tag="4">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/nav_history"
+            android:padding="5dp"
+            android:src="@drawable/ic_notifications"
+            android:tag="4"
+            app:shapeAppearanceOverlay="@style/MenuImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="@string/nav_history"
+            android:textColor="@color/text_subtle"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:tag="5">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/nav_settings"
+            android:padding="5dp"
+            android:src="@drawable/ic_settings"
+            android:tag="5"
+            app:shapeAppearanceOverlay="@style/MenuImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="@string/nav_settings"
+            android:textColor="@color/text_subtle"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
