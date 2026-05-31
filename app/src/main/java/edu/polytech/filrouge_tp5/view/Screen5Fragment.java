@@ -15,11 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import org.osmdroid.config.Configuration;
 import org.osmdroid.events.MapListener;
 import org.osmdroid.events.ScrollEvent;
 import org.osmdroid.events.ZoomEvent;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
@@ -84,7 +82,7 @@ public class Screen5Fragment extends Fragment implements IssueObserver {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Configuration.getInstance().setUserAgentValue(requireContext().getPackageName());
+        edu.polytech.filrouge_tp5.MapConfig.configure(requireContext());
         View view = inflater.inflate(R.layout.fragment_screen5, container, false);
         listView = view.findViewById(R.id.listIssues);
         mapView = view.findViewById(R.id.mapView);
@@ -126,7 +124,7 @@ public class Screen5Fragment extends Fragment implements IssueObserver {
             return;
         }
 
-        mapView.setTileSource(TileSourceFactory.MAPNIK);
+        edu.polytech.filrouge_tp5.MapConfig.applyTileSource(mapView);
         mapView.setBuiltInZoomControls(true);
         mapView.setMultiTouchControls(true);
         mapView.setMinZoomLevel(3.0);

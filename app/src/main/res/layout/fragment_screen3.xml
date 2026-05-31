@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Patron Fabrique + commande vocale : choisissez le contexte, puis decrivez la situation."
+            android:text="Choisissez le contexte, puis decrivez la situation."
             android:textColor="@color/text_subtle"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,13 +123,37 @@
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
             <TextView
+                android:id="@+id/labelPosition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Position de l'incident"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Touchez la carte ou deplacez le marqueur pour placer l'incident."
+                android:textColor="@color/text_subtle"
+                android:textSize="12sp" />
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/reportMap"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
                 android:id="@+id/gpsHint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_badge_info"
                 android:padding="10dp"
-                android:text="GPS auto : 43.62, 7.05 | Horodatage auto"
+                android:text="Position : 43.6156, 7.0718 | Horodatage auto"
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
 

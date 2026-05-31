@@ -6,7 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
@@ -34,8 +37,12 @@ public class Screen2Fragment extends Fragment implements ClickableIssue<Issue>, 
     private final String TAG = "frallo " + getClass().getSimpleName();
     private Notifiable notifiable;
     private ArrayList<Issue> issues = new ArrayList<>();
+    private final ArrayList<Issue> displayed = new ArrayList<>();
     private IssueManager model;
     private IssueAdapter<Issue> adapter;
+
+    private Issue.Status statusFilter;
+    private Issue.Priority priorityFilter;
 
     public enum Action {
         DISPLAY, STATUS_CHANGE
@@ -96,15 +103,82 @@ public class Screen2Fragment extends Fragment implements ClickableIssue<Issue>, 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_screen2, container, false);
         ListView list = view.findViewById(R.id.list_item);
-        adapter = new IssueAdapter<>(this, issues);
+        adapter = new IssueAdapter<>(this, displayed);
         list.setAdapter(adapter);
+
+        setupFilters(view);
+        applyFilter();
         return view;
     }
 
+    private void setupFilters(View view) {
+        Spinner statusSpinner = view.findViewById(R.id.filterStatus);
+        Spinner prioritySpinner = view.findViewById(R.id.filterPriority);
+
+        ArrayList<String> statusLabels = new ArrayList<>();
+        statusLabels.add("Tous");
+        for (String label : IssueAdapter.STATUS_LABELS) {
+            statusLabels.add(label);
+        }
+        statusSpinner.setAdapter(buildSpinnerAdapter(statusLabels));
+
+        ArrayList<String> priorityLabels = new ArrayList<>();
+        priorityLabels.add("Toutes");
+        for (Issue.Priority p : Issue.Priority.values()) {
+            priorityLabels.add(p.name());
+        }
+        prioritySpinner.setAdapter(buildSpinnerAdapter(priorityLabels));
+
+        statusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
+                statusFilter = pos == 0 ? null : Issue.Status.values()[pos - 1];
+                applyFilter();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        prioritySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
+                priorityFilter = pos == 0 ? null : Issue.Priority.values()[pos - 1];
+                applyFilter();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+    private ArrayAdapter<String> buildSpinnerAdapter(List<String> labels) {
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                requireContext(), android.R.layout.simple_spinner_item, labels);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return spinnerAdapter;
+    }
+
+    private void applyFilter() {
+        displayed.clear();
+        for (Issue issue : issues) {
+            boolean statusOk = statusFilter == null || issue.getStatus() == statusFilter;
+            boolean priorityOk = priorityFilter == null || issue.getPriority() == priorityFilter;
+            if (statusOk && priorityOk) {
+                displayed.add(issue);
+            }
+        }
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
+    }
+
     @Override
-    public void onRatingBarChange(int itemIndex, float value, IssueAdapter<Issue> adapter, List<Issue> items) {
+    public void onStatusChange(int itemIndex, Issue.Status status, List<Issue> items) {
         Issue issue = items.get(itemIndex);
-        notifiable.onDataChange(FRAGMENT_ID, issue, Action.STATUS_CHANGE.ordinal(), value);
+        notifiable.onDataChange(FRAGMENT_ID, issue, Action.STATUS_CHANGE.ordinal(), status);
     }
 
     @Override
@@ -112,31 +186,14 @@ public class Screen2Fragment extends Fragment implements ClickableIssue<Issue>, 
         notifiable.onDataChange(FRAGMENT_ID, items.get(itemIndex), Action.DISPLAY.ordinal(), null);
     }
 
-    private Issue.Status statusFromRating(float value) {
-        int index = Math.round(value) - 1;
-        if (index < 0) {
-            index = 0;
-        }
-        if (index >= Issue.Status.values().length) {
-            index = Issue.Status.values().length - 1;
-        }
-        return Issue.Status.values()[index];
-    }
-
     @Override
     public void onStatusChanged(Issue issue) {
-        refreshList();
+        applyFilter();
     }
 
     @Override
     public void onPriorityChanged(Issue issue) {
-        refreshList();
-    }
-
-    private void refreshList() {
-        if (adapter != null) {
-            adapter.notifyDataSetChanged();
-        }
+        applyFilter();
     }
 
     @Override

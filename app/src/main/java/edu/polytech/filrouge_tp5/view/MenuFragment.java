@@ -24,9 +24,8 @@ public class MenuFragment extends Fragment {
             R.drawable.ic_map,           // 0 -> Carte
             R.drawable.ic_list,          // 1 -> Liste des incidents
             R.drawable.ic_alert,         // 2 -> Signaler
-            R.drawable.ic_mic,           // 3 -> Alerte vocale
-            R.drawable.ic_notifications, // 4 -> Suivi des alertes
-            R.drawable.ic_settings       // 5 -> Parametres
+            R.drawable.ic_mic,           // 3 -> Aide vocale
+            R.drawable.ic_settings       // 4 -> Parametres
     };
 
     private Menuable menuable;

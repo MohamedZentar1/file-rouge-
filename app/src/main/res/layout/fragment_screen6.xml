@@ -37,19 +37,24 @@
         android:padding="24dp">
 
         <ImageView
+            android:id="@+id/micButton"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:background="@drawable/bg_circle_primary"
+            android:clickable="true"
             android:contentDescription="@string/nav_voice"
+            android:focusable="true"
             android:padding="32dp"
             android:src="@drawable/ic_mic"
             app:tint="@color/surface" />
 
         <TextView
+            android:id="@+id/voiceStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="A l'ecoute..."
+            android:gravity="center"
+            android:text="Touchez le micro pour parler"
             android:textColor="@color/text_primary"
             android:textSize="22sp"
             android:textStyle="bold" />

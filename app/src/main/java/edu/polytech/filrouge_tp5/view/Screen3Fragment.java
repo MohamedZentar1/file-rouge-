@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -19,9 +20,16 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.osmdroid.events.MapEventsReceiver;
+import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.MapEventsOverlay;
+import org.osmdroid.views.overlay.Marker;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
+import edu.polytech.filrouge_tp5.MapConfig;
 import edu.polytech.filrouge_tp5.Notifiable;
 import edu.polytech.filrouge_tp5.R;
 import edu.polytech.filrouge_tp5.factory.AccidentFactory;
@@ -35,9 +43,18 @@ import edu.polytech.filrouge_tp5.model.Issue;
 public class Screen3Fragment extends Fragment {
     public static final int FRAGMENT_ID = 2;
 
+    private static final double DEFAULT_LATITUDE = 43.6156;
+    private static final double DEFAULT_LONGITUDE = 7.0718;
+
     private final String TAG = "frallo " + getClass().getSimpleName();
     private Notifiable notifiable;
     private EditText currentTargetEditText;
+
+    private MapView reportMap;
+    private Marker reportMarker;
+    private TextView gpsHint;
+    private double selectedLatitude = DEFAULT_LATITUDE;
+    private double selectedLongitude = DEFAULT_LONGITUDE;
 
     public enum Action {
         ISSUE_CREATED
@@ -96,6 +113,7 @@ public class Screen3Fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        MapConfig.configure(requireContext());
         View view = inflater.inflate(R.layout.fragment_screen3, container, false);
 
         EditText issueTitle = view.findViewById(R.id.title);
@@ -105,6 +123,10 @@ public class Screen3Fragment extends Fragment {
 
         TextInputLayout titleInput = view.findViewById(R.id.issueTitle);
         TextInputLayout descriptionInput = view.findViewById(R.id.issueDescription);
+
+        gpsHint = view.findViewById(R.id.gpsHint);
+        reportMap = view.findViewById(R.id.reportMap);
+        setupReportMap();
 
         titleInput.setEndIconOnClickListener(v -> startVoiceRecognition(issueTitle));
         descriptionInput.setEndIconOnClickListener(v -> startVoiceRecognition(issueDescription));
@@ -129,11 +151,107 @@ public class Screen3Fragment extends Fragment {
                     ? new HighwayFactory()
                     : new UrbanFactory();
             Issue newIssue = factory.createIssue(title, description);
+            newIssue.setLocation(selectedLatitude, selectedLongitude);
             notifiable.onDataChange(FRAGMENT_ID, newIssue, Action.ISSUE_CREATED.ordinal(), newIssue.getSafetyProtocol());
             Toast.makeText(requireContext(), "Signalement cree", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Nouvel incident cree : " + newIssue);
         });
 
         return view;
+    }
+
+    private void setupReportMap() {
+        if (reportMap == null) {
+            return;
+        }
+        MapConfig.applyTileSource(reportMap);
+        reportMap.setMultiTouchControls(true);
+        reportMap.setBuiltInZoomControls(false);
+        reportMap.getController().setZoom(15.0);
+
+        GeoPoint start = new GeoPoint(selectedLatitude, selectedLongitude);
+        reportMap.getController().setCenter(start);
+
+        reportMarker = new Marker(reportMap);
+        reportMarker.setPosition(start);
+        reportMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        reportMarker.setTitle("Position de l'incident");
+        reportMarker.setDraggable(true);
+        reportMarker.setOnMarkerDragListener(new Marker.OnMarkerDragListener() {
+            @Override
+            public void onMarkerDrag(Marker marker) {
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+                setSelectedPoint(marker.getPosition(), false);
+            }
+
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+            }
+        });
+        reportMap.getOverlays().add(reportMarker);
+
+        MapEventsOverlay events = new MapEventsOverlay(new MapEventsReceiver() {
+            @Override
+            public boolean singleTapConfirmedHelper(GeoPoint p) {
+                setSelectedPoint(p, true);
+                return true;
+            }
+
+            @Override
+            public boolean longPressHelper(GeoPoint p) {
+                return false;
+            }
+        });
+        reportMap.getOverlays().add(events);
+
+        reportMap.setOnTouchListener((v, e) -> {
+            v.getParent().requestDisallowInterceptTouchEvent(true);
+            return false;
+        });
+
+        updateGpsHint();
+        reportMap.invalidate();
+    }
+
+    private void setSelectedPoint(GeoPoint point, boolean recenter) {
+        selectedLatitude = point.getLatitude();
+        selectedLongitude = point.getLongitude();
+        if (reportMarker != null) {
+            reportMarker.setPosition(point);
+        }
+        if (recenter && reportMap != null) {
+            reportMap.getController().animateTo(point);
+        }
+        updateGpsHint();
+        if (reportMap != null) {
+            reportMap.invalidate();
+        }
+    }
+
+    private void updateGpsHint() {
+        if (gpsHint != null) {
+            gpsHint.setText(String.format(Locale.FRANCE,
+                    "Position : %.4f, %.4f | Horodatage auto",
+                    selectedLatitude, selectedLongitude));
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (reportMap != null) {
+            reportMap.onResume();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        if (reportMap != null) {
+            reportMap.onPause();
+        }
+        super.onPause();
     }
 }

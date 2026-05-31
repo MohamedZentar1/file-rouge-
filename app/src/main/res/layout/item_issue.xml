@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_card_incident"
-    android:descendantFocusability="afterDescendants"
+    android:clickable="true"
+    android:descendantFocusability="blocksDescendants"
+    android:foreground="?attr/selectableItemBackground"
     android:minHeight="118dp"
     android:padding="12dp">
 
@@ -74,17 +76,11 @@
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/issueDescription" />
 
-    <RatingBar
-        android:id="@+id/status"
-        style="?android:attr/ratingBarStyleSmall"
+    <Spinner
+        android:id="@+id/statusSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:isIndicator="false"
-        android:numStars="5"
-        android:progressTint="@color/warning"
-        android:rating="1"
-        android:secondaryProgressTint="@color/warning_soft"
-        android:stepSize="1"
+        android:minWidth="140dp"
         app:layout_constraintBottom_toBottomOf="@id/type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/type" />

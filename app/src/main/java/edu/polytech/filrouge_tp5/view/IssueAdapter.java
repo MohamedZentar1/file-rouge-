@@ -3,9 +3,10 @@ package edu.polytech.filrouge_tp5.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,10 @@ import edu.polytech.filrouge_tp5.R;
 import edu.polytech.filrouge_tp5.model.Issue;
 
 public class IssueAdapter<T extends Issue> extends ArrayAdapter<T> {
+    static final String[] STATUS_LABELS = {
+            "Signale", "Confirme", "Sur place", "Degagement", "Resolu"
+    };
+
     private final List<T> items;
     private final LayoutInflater inflater;
     private final ClickableIssue<T> callBackFragment;
@@ -58,7 +63,7 @@ public class IssueAdapter<T extends Issue> extends ArrayAdapter<T> {
         TextView brief = layoutItem.findViewById(R.id.issueDescription);
         TextView type = layoutItem.findViewById(R.id.type);
         TextView timestamp = layoutItem.findViewById(R.id.timestamp);
-        RatingBar status = layoutItem.findViewById(R.id.status);
+        Spinner statusSpinner = layoutItem.findViewById(R.id.statusSpinner);
 
         T currentIssue = items.get(position);
         name.setText(currentIssue.getTitle());
@@ -80,15 +85,32 @@ public class IssueAdapter<T extends Issue> extends ArrayAdapter<T> {
                 break;
         }
 
-        status.setOnRatingBarChangeListener(null);
-        status.setRating(currentIssue.getStatus().getRating());
-        status.setOnRatingBarChangeListener((ratingBar, value, fromUser) -> {
-            if (fromUser) {
-                callBackFragment.onRatingBarChange(position, value, this, items);
-            }
-        });
+        bindStatusSpinner(statusSpinner, currentIssue, position);
 
         layoutItem.setOnClickListener(clic -> callBackFragment.onClickItem(items, position));
         return layoutItem;
+    }
+
+    private void bindStatusSpinner(Spinner spinner, T currentIssue, int position) {
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                spinner.getContext(), android.R.layout.simple_spinner_item, STATUS_LABELS);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+
+        spinner.setOnItemSelectedListener(null);
+        spinner.setSelection(currentIssue.getStatus().ordinal(), false);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                Issue.Status selected = Issue.Status.values()[pos];
+                if (selected != items.get(position).getStatus()) {
+                    callBackFragment.onStatusChange(position, selected, items);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 }

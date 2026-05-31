@@ -37,12 +37,11 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
      * reached by tapping an item in the incident list, never from the menu bar.
      */
     private static final int[] MENU_TO_FRAGMENT = {
-            Screen5Fragment.FRAGMENT_ID, // 0 - ic_map           -> Carte (accueil MVC)
-            Screen2Fragment.FRAGMENT_ID, // 1 - ic_list          -> Liste des incidents
-            Screen3Fragment.FRAGMENT_ID, // 2 - ic_alert         -> Signaler un incident
-            Screen6Fragment.FRAGMENT_ID, // 3 - ic_mic           -> Alerte vocale
-            Screen4Fragment.FRAGMENT_ID, // 4 - ic_notifications -> Suivi des alertes
-            Screen7Fragment.FRAGMENT_ID  // 5 - ic_settings      -> Parametres
+            Screen5Fragment.FRAGMENT_ID, // 0 - ic_map      -> Carte (accueil MVC)
+            Screen2Fragment.FRAGMENT_ID, // 1 - ic_list     -> Liste des incidents
+            Screen3Fragment.FRAGMENT_ID, // 2 - ic_alert    -> Signaler un incident
+            Screen6Fragment.FRAGMENT_ID, // 3 - ic_mic      -> Aide vocale
+            Screen7Fragment.FRAGMENT_ID  // 4 - ic_settings -> Parametres
     };
 
     private final String TAG = "frallo " + getClass().getSimpleName();
@@ -63,16 +62,16 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
         if (savedInstanceState != null) {
             savedInstanceState.setClassLoader(Issue.class.getClassLoader());
             isStarting = savedInstanceState.getBoolean(DATA_IS_STARTING, false);
-            menuNumber = savedInstanceState.getInt(DATA_MENU_NUMBER, Screen4Fragment.FRAGMENT_ID);
+            menuNumber = savedInstanceState.getInt(DATA_MENU_NUMBER, Screen5Fragment.FRAGMENT_ID);
             activeIssueId = savedInstanceState.getString("active_issue_id");
             ArrayList<Issue> restoredIssues = savedInstanceState.getParcelableArrayList(DATA_ISSUES);
             issues = restoredIssues != null ? restoredIssues : new ArrayList<>();
         } else {
             issues = IssueCatalog.createDefaultIssues();
-            menuNumber = Screen4Fragment.FRAGMENT_ID;
+            menuNumber = Screen5Fragment.FRAGMENT_ID;
             Intent intent = getIntent();
             if (intent != null) {
-                menuNumber = intent.getIntExtra(getString(R.string.index), Screen4Fragment.FRAGMENT_ID);
+                menuNumber = intent.getIntExtra(getString(R.string.index), Screen5Fragment.FRAGMENT_ID);
             }
         }
         startMapMvc();
@@ -218,6 +217,19 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
                     navigateToDetail(issue);
                 }
                 break;
+            case Screen4Fragment.FRAGMENT_ID:
+                if (data instanceof Issue) {
+                    navigateToDetail((Issue) data);
+                }
+                break;
+            case Screen6Fragment.FRAGMENT_ID:
+                if (data instanceof Issue) {
+                    Issue voiceIssue = (Issue) data;
+                    issueController.addIssue(voiceIssue);
+                    issues = issueManager.getIssues();
+                    navigateToDetail(voiceIssue);
+                }
+                break;
         }
     }
 
@@ -237,9 +249,8 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
         Issue selectedIssue = (Issue) data;
         if (actionCode == Screen2Fragment.Action.DISPLAY.ordinal()) {
             navigateToDetail(selectedIssue);
-        } else if (actionCode == Screen2Fragment.Action.STATUS_CHANGE.ordinal() && argsAction instanceof Float) {
-            Issue.Status newStatus = statusFromRating((Float) argsAction);
-            issueController.updateIssueStatus(selectedIssue, newStatus);
+        } else if (actionCode == Screen2Fragment.Action.STATUS_CHANGE.ordinal() && argsAction instanceof Issue.Status) {
+            issueController.updateIssueStatus(selectedIssue, (Issue.Status) argsAction);
             issues = issueManager.getIssues();
         }
     }
@@ -253,13 +264,6 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
         Bundle args = new Bundle();
         args.putParcelable(getString(R.string.issue), issue);
         changeFragment(Screen1Fragment.FRAGMENT_ID, args);
-    }
-
-    private Issue.Status statusFromRating(float value) {
-        int index = Math.round(value) - 1;
-        if (index < 0) index = 0;
-        if (index >= Issue.Status.values().length) index = Issue.Status.values().length - 1;
-        return Issue.Status.values()[index];
     }
 
     @Override

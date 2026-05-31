@@ -96,7 +96,7 @@
                 android:id="@+id/option"
                 android:layout_width="52dp"
                 android:layout_height="52dp"
-                android:contentDescription="Acces rapide carte MVC"
+                android:contentDescription="Acces rapide a la carte"
                 android:insetLeft="0dp"
                 android:insetTop="0dp"
                 android:insetRight="0dp"

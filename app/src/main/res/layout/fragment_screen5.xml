@@ -17,7 +17,7 @@
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"
-        android:text="Carte Interactive &amp; MVC"
+        android:text="Incidents a proximite"
         android:textColor="@color/text_primary"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -41,7 +41,7 @@
         android:paddingTop="12dp"
         android:paddingEnd="16dp"
         android:paddingBottom="6dp"
-        android:text="Incidents visibles sur la carte (mise a jour MVC)"
+        android:text="Incidents visibles sur la carte"
         android:textColor="@color/text_secondary"
         android:textSize="14sp"
         android:textStyle="bold" />

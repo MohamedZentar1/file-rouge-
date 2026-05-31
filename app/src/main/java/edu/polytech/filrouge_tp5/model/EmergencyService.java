@@ -11,7 +11,7 @@ import java.util.List;
 public class EmergencyService implements IssueObserver {
     private static final String TAG = "EmergencyService";
     private static EmergencyService instance;
-    private final List<String> alerts = new ArrayList<>();
+    private final List<Alert> alerts = new ArrayList<>();
 
     private EmergencyService() {
         Log.d(TAG, "EmergencyService initialized");
@@ -29,14 +29,14 @@ public class EmergencyService implements IssueObserver {
         if (issue == null) {
             return;
         }
-        String msg = "STATUS UPDATE: Incident [" + issue.getTitle() + "] is now " + issue.getStatusLabel();
+        String msg = "Statut: [" + issue.getTitle() + "] -> " + issue.getStatusLabel();
         Log.i(TAG, msg);
-        addAlert(msg);
+        addAlert(new Alert(msg, issue.getId(), Alert.Type.INFO));
 
         if (issue.getStatus() == Issue.Status.CONFIRMED) {
-            String alert = "ALERT: Deployment authorized for [" + issue.getTitle() + "]";
+            String alert = "ALERTE: Deploiement autorise pour [" + issue.getTitle() + "]";
             Log.w(TAG, alert);
-            addAlert(alert);
+            addAlert(new Alert(alert, issue.getId(), Alert.Type.CRITICAL));
         }
     }
 
@@ -45,19 +45,19 @@ public class EmergencyService implements IssueObserver {
         if (issue == null) {
             return;
         }
-        String msg = "PRIORITY UPDATE: Incident [" + issue.getTitle() + "] changed to " + issue.getPriorityLabel();
+        String msg = "Priorite: [" + issue.getTitle() + "] -> " + issue.getPriorityLabel();
         Log.i(TAG, msg);
-        addAlert(msg);
+        addAlert(new Alert(msg, issue.getId(), Alert.Type.INFO));
     }
 
-    private synchronized void addAlert(String message) {
-        alerts.add(0, message); // Latest first
+    private synchronized void addAlert(Alert alert) {
+        alerts.add(0, alert); // Latest first
         if (alerts.size() > 20) {
             alerts.remove(alerts.size() - 1);
         }
     }
 
-    public synchronized List<String> getAlerts() {
+    public synchronized List<Alert> getAlerts() {
         return new ArrayList<>(alerts);
     }
 }

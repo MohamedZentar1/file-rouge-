@@ -140,42 +140,13 @@
         android:tag="4">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/menu5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/nav_history"
-            android:padding="5dp"
-            android:src="@drawable/ic_notifications"
-            android:tag="4"
-            app:shapeAppearanceOverlay="@style/MenuImage" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:text="@string/nav_history"
-            android:textColor="@color/text_subtle"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_margin="2dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:tag="5">
-
-        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/menu6"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:contentDescription="@string/nav_settings"
             android:padding="5dp"
             android:src="@drawable/ic_settings"
-            android:tag="5"
+            android:tag="4"
             app:shapeAppearanceOverlay="@style/MenuImage" />
 
         <TextView

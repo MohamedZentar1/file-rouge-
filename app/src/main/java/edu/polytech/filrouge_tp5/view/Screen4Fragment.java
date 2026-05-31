@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,12 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import edu.polytech.filrouge_tp5.Notifiable;
 import edu.polytech.filrouge_tp5.R;
+import edu.polytech.filrouge_tp5.model.Alert;
 import edu.polytech.filrouge_tp5.model.EmergencyService;
+import edu.polytech.filrouge_tp5.model.Issue;
+import edu.polytech.filrouge_tp5.model.IssueManager;
 
 
-/**
- *  Fragment pret a remplir
- */
 public class Screen4Fragment extends Fragment {
     public final static int FRAGMENT_ID = 3;
     private final String TAG = "frallo "+getClass().getSimpleName();
@@ -56,7 +57,7 @@ public class Screen4Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_screen4, container, false);
         recyclerView = view.findViewById(R.id.recyclerAlerts);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new AlertAdapter(EmergencyService.getInstance().getAlerts());
+        adapter = new AlertAdapter(EmergencyService.getInstance().getAlerts(), this::openIssue);
         recyclerView.setAdapter(adapter);
         return view;
     }
@@ -67,14 +68,29 @@ public class Screen4Fragment extends Fragment {
         }
     }
 
-    private static class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> {
-        private List<String> alerts;
+    private void openIssue(Alert alert) {
+        Issue issue = IssueManager.getInstance().findIssueById(alert.getIssueId());
+        if (issue != null) {
+            notifiable.onDataChange(FRAGMENT_ID, issue, 0, null);
+        } else {
+            Toast.makeText(requireContext(), "Incident introuvable", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        AlertAdapter(List<String> alerts) {
+    interface OnAlertClickListener {
+        void onAlertClick(Alert alert);
+    }
+
+    private static class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> {
+        private List<Alert> alerts;
+        private final OnAlertClickListener listener;
+
+        AlertAdapter(List<Alert> alerts, OnAlertClickListener listener) {
             this.alerts = alerts;
+            this.listener = listener;
         }
 
-        void setAlerts(List<String> alerts) {
+        void setAlerts(List<Alert> alerts) {
             this.alerts = alerts;
             notifyDataSetChanged();
         }
@@ -94,16 +110,22 @@ public class Screen4Fragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            String message = alerts.get(position);
-            holder.textView.setText(message);
+            Alert alert = alerts.get(position);
+            holder.textView.setText(alert.getMessage());
 
-            boolean isCritical = message.startsWith("ALERT");
+            boolean isCritical = alert.isCritical();
             holder.icon.setBackgroundResource(isCritical
                     ? R.drawable.bg_circle_danger
                     : R.drawable.bg_circle_primary);
             holder.icon.setImageResource(isCritical
                     ? R.drawable.ic_alert
                     : R.drawable.ic_notifications);
+
+            holder.itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    listener.onAlertClick(alert);
+                }
+            });
         }
 
         @Override
