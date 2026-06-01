@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -44,6 +45,11 @@ dependencies {
 
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    implementation 'org.osmdroid:osmdroid-android:6.0.2'
+    implementation 'org.osmdroid:osmdroid-android:6.1.18'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation platform('com.google.firebase:firebase-bom:33.5.1')
+    implementation 'com.google.firebase:firebase-messaging'
+
+    implementation 'com.airbnb.android:lottie:6.4.0'
 }

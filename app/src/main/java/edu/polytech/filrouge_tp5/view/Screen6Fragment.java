@@ -1,14 +1,17 @@
 package edu.polytech.filrouge_tp5.view;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,11 +63,11 @@ public class Screen6Fragment extends Fragment {
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     if (matches != null && !matches.isEmpty()) {
                         createIssueFromVoice(matches.get(0));
+                    } else {
+                        promptManualEntry();
                     }
                 } else {
-                    if (voiceStatus != null) {
-                        voiceStatus.setText("Touchez le micro pour parler");
-                    }
+                    promptManualEntry();
                 }
             }
     );
@@ -90,11 +93,32 @@ public class Screen6Fragment extends Fragment {
             voiceLauncher.launch(intent);
         } catch (Exception e) {
             Log.e(TAG, "Reconnaissance vocale non supportee sur cet appareil.", e);
-            Toast.makeText(requireContext(), "Reconnaissance vocale non disponible", Toast.LENGTH_SHORT).show();
-            if (voiceStatus != null) {
-                voiceStatus.setText("Touchez le micro pour parler");
-            }
+            promptManualEntry();
         }
+    }
+
+    private void promptManualEntry() {
+        if (!isAdded()) {
+            return;
+        }
+        if (voiceStatus != null) {
+            voiceStatus.setText("Touchez le micro pour parler");
+        }
+        final EditText input = new EditText(requireContext());
+        input.setHint("Ex : Accident sur l'autoroute A8");
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Decrire l'incident")
+                .setMessage("Micro indisponible : saisissez le signalement.")
+                .setView(input)
+                .setPositiveButton("Creer", (dialog, which) -> {
+                    String text = input.getText().toString().trim();
+                    if (!text.isEmpty()) {
+                        createIssueFromVoice(text);
+                    }
+                })
+                .setNegativeButton("Annuler", null)
+                .show();
     }
 
     private void createIssueFromVoice(String spoken) {

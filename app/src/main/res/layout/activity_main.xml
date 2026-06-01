@@ -13,6 +13,7 @@
         android:id="@+id/logoArea"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:clipChildren="false"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/actionArea"
@@ -21,16 +22,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
 
-        <TextView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAccident"
+            android:layout_width="300dp"
+            android:layout_height="170dp"
             android:contentDescription="@string/app_name"
-            android:fontFamily="sans"
-            android:text="/!\\"
-            android:textColor="@color/warning"
-            android:textSize="78sp"
-            android:textStyle="bold" />
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/car_accident" />
 
         <TextView
             android:id="@+id/textView"

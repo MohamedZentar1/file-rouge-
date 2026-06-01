@@ -1,53 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:fillViewport="true"
     tools:context=".view.Screen7Fragment">
-
-    <TextView
-        android:id="@+id/labelScreen7Fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Parametres"
-        android:textColor="@color/text_primary"
-        android:textSize="26sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Permissions et services utilises par l'application"
-        android:textColor="@color/text_subtle"
-        android:textSize="14sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_card"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="16dp">
 
+        <TextView
+            android:id="@+id/labelScreen7Fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profil &amp; Parametres"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- Resume du profil -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="12dp">
+            android:padding="14dp">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profilePhoto"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:background="@drawable/bg_circle_primary"
-                android:contentDescription="@string/nav_history"
-                android:padding="9dp"
-                android:src="@drawable/ic_notifications"
+                android:contentDescription="Photo de profil"
+                android:padding="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_users"
+                app:shapeAppearanceOverlay="@style/RoundedImage"
                 app:tint="@color/surface" />
 
             <LinearLayout
@@ -58,156 +53,173 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/summaryName"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Notifications d'incidents"
+                    android:text="Utilisateur SignalRoute"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/summaryPoste"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Alertes en temps reel sur les nouveaux signalements"
+                    android:text="Citoyen"
                     android:textColor="@color/text_subtle"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_badge_success"
-                android:paddingStart="10dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="5dp"
-                android:text="Activees"
-                android:textColor="@color/success"
-                android:textSize="12sp"
-                android:textStyle="bold" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:background="@color/border" />
-
+        <!-- Modifier le profil -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_circle_primary"
-                android:contentDescription="@string/nav_voice"
-                android:padding="9dp"
-                android:src="@drawable/ic_mic"
-                app:tint="@color/surface" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Microphone"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Utilise pour le signalement vocal mains libres"
-                    android:textColor="@color/text_subtle"
-                    android:textSize="13sp" />
-            </LinearLayout>
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_badge_success"
-                android:paddingStart="10dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="5dp"
-                android:text="Autorise"
-                android:textColor="@color/success"
-                android:textSize="12sp"
+                android:text="Modifier le profil"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnChangePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_button_outline"
+                android:text="Changer la photo"
+                android:textAllCaps="false"
+                android:textColor="@color/text_secondary" />
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input"
+                android:hint="Nom"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_subtle" />
+
+            <EditText
+                android:id="@+id/editPoste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_input"
+                android:hint="Poste / role"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_subtle" />
+
+            <Button
+                android:id="@+id/btnSaveProfile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="Enregistrer"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:background="@color/border" />
-
+        <!-- Compte -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="12dp">
+            android:padding="14dp">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_circle_primary"
-                android:contentDescription="@string/nav_map"
-                android:padding="9dp"
-                android:src="@drawable/ic_location"
-                app:tint="@color/surface" />
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/authStatus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Connecte"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Geolocalisation"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnAuth"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:background="@drawable/bg_button_outline"
+                android:text="Se deconnecter"
+                android:textAllCaps="false"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Rattache chaque incident a une zone sur la carte"
-                    android:textColor="@color/text_subtle"
-                    android:textSize="13sp" />
-            </LinearLayout>
+        <!-- Parametres personnels -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_badge_success"
-                android:paddingStart="10dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="5dp"
-                android:text="Active"
-                android:textColor="@color/success"
-                android:textSize="12sp"
+                android:text="Parametres"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchNotif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Activer les notifications"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchAnon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Signaler anonymement"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchMapVis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Visible sur la carte"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnTestNotif"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_button_primary"
+            android:text="Tester la notification"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

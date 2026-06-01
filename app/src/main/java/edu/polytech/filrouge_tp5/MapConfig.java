@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.config.IConfigurationProvider;
-import org.osmdroid.tileprovider.tilesource.XYTileSource;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.views.MapView;
 
 import java.io.File;
@@ -32,12 +32,6 @@ public final class MapConfig {
     }
 
     public static void applyTileSource(MapView map) {
-        map.setTileSource(new XYTileSource(
-                "Mapnik", 0, 19, 256, ".png",
-                new String[]{
-                        "https://a.tile.openstreetmap.org/",
-                        "https://b.tile.openstreetmap.org/",
-                        "https://c.tile.openstreetmap.org/"
-                }));
+        map.setTileSource(TileSourceFactory.MAPNIK);
     }
 }

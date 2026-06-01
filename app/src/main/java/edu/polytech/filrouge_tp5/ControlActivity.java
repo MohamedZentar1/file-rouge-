@@ -1,10 +1,16 @@
 package edu.polytech.filrouge_tp5;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -14,6 +20,7 @@ import edu.polytech.filrouge_tp5.controller.IssueController;
 import edu.polytech.filrouge_tp5.model.Issue;
 import edu.polytech.filrouge_tp5.model.IssueCatalog;
 import edu.polytech.filrouge_tp5.model.IssueManager;
+import edu.polytech.filrouge_tp5.model.IssueObserver;
 import edu.polytech.filrouge_tp5.view.MenuFragment;
 import edu.polytech.filrouge_tp5.view.Screen1Fragment;
 import edu.polytech.filrouge_tp5.view.Screen2Fragment;
@@ -26,7 +33,7 @@ import edu.polytech.filrouge_tp5.view.Screen7Fragment;
 /**
  * Main controller of SignalRoute.
  */
-public class ControlActivity extends AppCompatActivity implements Menuable, Notifiable, Picturable {
+public class ControlActivity extends AppCompatActivity implements Menuable, Notifiable, Picturable, IssueObserver {
     private static final String DATA_IS_STARTING = "sauvegarde";
     private static final String DATA_MENU_NUMBER = "num";
     private static final String DATA_ISSUES = "signalroute_issues";
@@ -46,6 +53,9 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
 
     private final String TAG = "frallo " + getClass().getSimpleName();
 
+    private final ActivityResultLauncher<String> notifPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {});
+
     private MenuFragment menu;
     private boolean isStarting = true;
     private int menuNumber;
@@ -58,6 +68,12 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+            notifPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+        }
 
         if (savedInstanceState != null) {
             savedInstanceState.setClassLoader(Issue.class.getClassLoader());
@@ -75,6 +91,7 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
             }
         }
         startMapMvc();
+        issueManager.addObserver(this);
 
         Bundle args = new Bundle();
         int initialSlot = fragmentIdToMenuSlot(menuNumber);
@@ -259,6 +276,25 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
         return issueManager != null ? issueManager.findIssueById(id) : null;
     }
 
+    @Override
+    public void onStatusChanged(Issue issue) {
+        if (issue == null) {
+            return;
+        }
+        if (issue.getStatus() == Issue.Status.CONFIRMED) {
+            Notifier.show(this, "Secours mobilises",
+                    issue.getTitle() + " : confirme, intervention en cours.");
+        } else if (issue.getStatus() == Issue.Status.RESOLVED) {
+            Notifier.show(this, "Incident resolu",
+                    issue.getTitle() + " : la situation est retablie.");
+        }
+    }
+
+    @Override
+    public void onPriorityChanged(Issue issue) {
+        // No notification on priority change.
+    }
+
     private void navigateToDetail(Issue issue) {
         activeIssueId = issue.getId();
         Bundle args = new Bundle();
@@ -288,5 +324,13 @@ public class ControlActivity extends AppCompatActivity implements Menuable, Noti
             issues = restoredIssues;
             startMapMvc();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (issueManager != null) {
+            issueManager.removeObserver(this);
+        }
+        super.onDestroy();
     }
 }

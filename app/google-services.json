@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "229292255567",
+    "project_id": "signalroute-4f333",
+    "storage_bucket": "signalroute-4f333.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229292255567:android:3a74f508e99e6742543d3a",
+        "android_client_info": {
+          "package_name": "edu.polytech.filrouge_tp5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd9UTuFk0VLIQ4bxIBArJUKMRcoRyILrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
