@@ -77,7 +77,6 @@ public class Screen5Fragment extends Fragment implements IssueObserver {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ensureMvcReady();
-        model.addObserver(this);
     }
 
     @Override
@@ -93,6 +92,8 @@ public class Screen5Fragment extends Fragment implements IssueObserver {
         configureMap();
         renderMarkers();
         mapView.post(this::updateListView);
+
+        model.addObserver(this);
 
         return view;
     }
@@ -233,6 +234,16 @@ public class Screen5Fragment extends Fragment implements IssueObserver {
             mapView.onPause();
         }
         super.onPause();
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (model != null) {
+            model.removeObserver(this);
+        }
+        mapView = null;
+        adapter = null;
+        super.onDestroyView();
     }
 
     @Override

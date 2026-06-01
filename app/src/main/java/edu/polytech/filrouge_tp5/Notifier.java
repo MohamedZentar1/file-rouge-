@@ -44,28 +44,33 @@ public final class Notifier {
     }
 
     public static boolean show(Context context, String title, String body) {
-        ensureChannel(context);
+        try {
+            if (!canNotify(context) || !new ProfilePrefs(context).isNotifEnabled()) {
+                return false;
+            }
+            ensureChannel(context);
 
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(
-                context, NEXT_ID.get(), intent,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            Intent intent = new Intent(context, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent pendingIntent = PendingIntent.getActivity(
+                    context, NEXT_ID.get(), intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_notifications)
-                .setContentTitle(title)
-                .setContentText(body)
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(body))
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                    .setSmallIcon(R.drawable.ic_notifications)
+                    .setContentTitle(title)
+                    .setContentText(body)
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(body))
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        if (!canNotify(context) || !new ProfilePrefs(context).isNotifEnabled()) {
+            // Unique id each time so notifications stack instead of overwriting.
+            NotificationManagerCompat.from(context).notify(NEXT_ID.incrementAndGet(), builder.build());
+            return true;
+        } catch (Throwable t) {
+            android.util.Log.e("SIGNALROUTE_CRASH", "Erreur notification", t);
             return false;
         }
-        // Unique id each time so notifications stack instead of overwriting.
-        NotificationManagerCompat.from(context).notify(NEXT_ID.incrementAndGet(), builder.build());
-        return true;
     }
 }
